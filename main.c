@@ -16,5 +16,17 @@ int main(int argc, char *argv[]){
 }
 
 void source2symbol(char *source){
-	printf("source: %s",source);
+	for(int index = 0; source[index] != '\0'; index++){
+		if(source[index] == '\n'){
+			continue;
+		} else if(source[index] == '+'){
+			printf("SYMBOL_PLUS\n");
+		} else if(source[index] >= '0' && source[index] <= '9'){
+			while(source[index] >= '0' && source[index] <= '9'){
+				printf("SYMBOL_NUM\n");
+				index++;
+			}
+			index--;
+		}
+	}
 }
