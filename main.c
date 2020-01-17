@@ -21,6 +21,8 @@ void source2symbol(char *source){
 			continue;
 		} else if(source[index] == '+'){
 			printf("SYMBOL_PLUS\n");
+		} else if(source[index] == '-'){
+			printf("SYMBOL_MINUS\n");
 		} else if(source[index] >= '0' && source[index] <= '9'){
 			while(source[index] >= '0' && source[index] <= '9'){
 				printf("SYMBOL_NUM\n");
