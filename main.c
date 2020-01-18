@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <sys/mman.h>
+#include <stdlib.h>
 
 void source2symbol(char *source);
 
@@ -15,7 +16,14 @@ int main(int argc, char *argv[]){
 	source2symbol(source);
 }
 
+typedef struct {
+	int type;
+	char typename[20];
+} SYMBOL;
+
 void source2symbol(char *source){
+	SYMBOL *symbol_list = (SYMBOL *)malloc(sizeof(SYMBOL) * 1000);
+
 	for(int index = 0; source[index] != '\0'; index++){
 		if(source[index] == '\n'){
 			continue;
